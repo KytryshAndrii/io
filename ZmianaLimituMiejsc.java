@@ -5,6 +5,10 @@ public class ZmianaLimituMiejsc extends StrategiaZarzadzaniaGrupaZajeciowa {
 		throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * PU07 Zmiana limitu miejsc w grupie.
+	 * @return int jako numer wybranej grupy z poprawnie zmienionym limitem miejsc.
+	 */
 	private int wprowadzenieNowegoLimituMiejsc() {
 		throw new UnsupportedOperationException();
 	}

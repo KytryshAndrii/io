@@ -1,7 +1,7 @@
 public class Student extends Uzytkownik {
 
-	public Student(int aNrIndeksu, int aNr, String aKierunek) {
-		throw new UnsupportedOperationException();
+	public Student(int NrIndeksu, int Nr, String Kierunek) {
+//		throw new UnsupportedOperationException();
 	}
 
 	public String opisz() {

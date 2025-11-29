@@ -1,9 +1,12 @@
 public class TworzenieGrupyZajeciowej extends StrategiaZarzadzaniaGrupaZajeciowa {
 
 	public TworzenieGrupyZajeciowej(IModel aModel) {
-		throw new UnsupportedOperationException();
-	}
 
+	}
+	/**
+	 * PU05 Tworzenie grupy zajeciowej.
+	 * @return int jako numer poprawnie utworzonej grupy zajeciowej.
+	 */
 	private int wprowadzenieDanychGrupy() {
 		throw new UnsupportedOperationException();
 	}

@@ -3,10 +3,14 @@ public class EdycjaRejestracjiStudenta {
 	private IPrzegladanieGrup _przegladanieGrupy;
 	private StrategiaEdycjiRejestracjiStudenta _strategiaEdycjiRejestracjiStudenta;
 
-	public EdycjaRejestracjiStudenta(IModel aModel) {
-		throw new UnsupportedOperationException();
+	public EdycjaRejestracjiStudenta(IModel Model) {
+		this._model = Model;
 	}
 
+	/**
+	 * PU02 Edycia rejestracji studenta.
+	 * @return void w razie powodzeia. W przeciwnym razie, uzytkownikowi wyswietla sie komunikat.
+	 */
 	private void wyborOpcji() {
 		throw new UnsupportedOperationException();
 	}

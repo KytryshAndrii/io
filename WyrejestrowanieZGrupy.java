@@ -1,14 +1,19 @@
 public class WyrejestrowanieZGrupy extends StrategiaEdycjiRejestracjiStudenta {
 
-	public WyrejestrowanieZGrupy(IModel aModel) {
-		throw new UnsupportedOperationException();
+	private final IModel model;
+
+	public WyrejestrowanieZGrupy(IModel model) {
+		this.model = model;
+	}
+	/**
+	 * PU03 Wyrejestrowanie z grupy.
+	 * @return true jeśli  proces wyrejestrowania się powiedzie.
+	 */
+	public boolean wypisanieZGrupy(int NrGrupy, int NrStudenta) {
+		throw new UnsupportedOperationException(" wypisanieZGrupy() niezaimplementowana");
 	}
 
-	public boolean wypisanieZGrupy(int aNrGrupy) {
-		throw new UnsupportedOperationException();
-	}
-
-	private boolean potwierdzenieWyrejestrowania(int aNrStudenta) {
-		throw new UnsupportedOperationException();
+	private boolean potwierdzenieWyrejestrowania(int NrStudenta) {
+		throw new UnsupportedOperationException("potwierdzenieWyrejestrowania() niezaimplementowana");
 	}
 }

@@ -1,11 +1,14 @@
 public class PrzegladanieGrup implements IPrzegladanieGrup {
 	private IModel _model;
 
-	public PrzegladanieGrup(IModel aModel) {
-		throw new UnsupportedOperationException();
+	public PrzegladanieGrup(IModel Model) {
+		this._model = Model;
 	}
-
-	public String wyswietlenieDanychOGrupie(int aNrStudenta) {
+	/**
+	 * PU08 Przegladanie danych o grupach.
+	 * @return dane o grupach w postaci ciagu znakow string
+	 */
+	public String wyswietlenieDanychOGrupie(int NrStudenta) {
 		throw new UnsupportedOperationException();
 	}
 }

@@ -5,6 +5,10 @@ public class UsuwanieGrupZajeciowych extends StrategiaZarzadzaniaGrupaZajeciowa 
 		throw new UnsupportedOperationException();
 	}
 
+	/**
+	 * PU06 Usuwanie Grup zajeciowych.
+	 * @return int jako numer wybranej grupy do usuniecia.
+	 */
 	private int wyborGrupyDoUsuniecia() {
 		throw new UnsupportedOperationException();
 	}

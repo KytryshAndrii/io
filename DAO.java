@@ -1,7 +1,7 @@
 public class DAO implements IDAO {
 
 	public DAO() {
-		throw new UnsupportedOperationException();
+
 	}
 
 	public void dodajWpisDoRejestruZdarzenie(String aZdarzenie) {
@@ -33,6 +33,10 @@ public class DAO implements IDAO {
 	}
 
 	public int dodajGrupe(String aGrupa) {
+		throw new UnsupportedOperationException();
+	}
+
+	public int[] znajdzGrupy() {
 		throw new UnsupportedOperationException();
 	}
 

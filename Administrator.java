@@ -1,7 +1,7 @@
 public class Administrator extends Uzytkownik {
 
-	public Administrator(int aNr) {
-		throw new UnsupportedOperationException();
+	public Administrator(int Nr) {
+//		throw new UnsupportedOperationException();
 	}
 
 	public String opisz() {

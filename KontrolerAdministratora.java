@@ -1,35 +1,20 @@
 public class KontrolerAdministratora implements IKontrolerAdministratora {
 	private IModel _model;
 
-	public KontrolerAdministratora(IModel aModel) {
-		throw new UnsupportedOperationException();
+	public KontrolerAdministratora(IModel model) {
+		this._model = model;
 	}
 
 	public void zarzadzanieGrupeZajeciowa() {
-		throw new UnsupportedOperationException();
+		throw new UnsupportedOperationException(" zarzadzanieGrupeZajeciowa() w KontrolerStudenta niezaimplementowana");
 	}
 
 	public void rejestracjaDoGrupy() {
-		throw new UnsupportedOperationException();
+		throw new UnsupportedOperationException(" rejestracjaDoGrupy() w KontrolerStudenta niezaimplementowana");
 	}
 
-	public void wyrejestrowanieZGrupy() {
-		throw new UnsupportedOperationException();
+	public void edycjaRejestracjiStudenta() {
+		throw new UnsupportedOperationException("edycjaRejestracjiStudenta() w KontrolerStudenta niezaimplementowana");
 	}
 
-	public void przegladanieGrup() {
-		throw new UnsupportedOperationException();
-	}
-
-	public void zmianaLimituMiejscGrupy() {
-		throw new UnsupportedOperationException();
-	}
-
-	public void usuniecieGrupy() {
-		throw new UnsupportedOperationException();
-	}
-
-	public void utworzenieGrupy() {
-		throw new UnsupportedOperationException();
-	}
 }

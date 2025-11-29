@@ -16,6 +16,8 @@ public interface IDAO {
 
 	public int dodajGrupe(String aGrupa);
 
+	public int[] znajdzGrupy();
+
 	public void edytujLimitMiejscWGrupie(int aNrGrupy);
 
 	public void usunGrupe(int aNrGrupy);

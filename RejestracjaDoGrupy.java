@@ -1,10 +1,17 @@
 public class RejestracjaDoGrupy extends StrategiaEdycjiRejestracjiStudenta {
 
-	public RejestracjaDoGrupy(IModel aModel) {
-		throw new UnsupportedOperationException();
+	private final IModel model;
+
+	public RejestracjaDoGrupy(IModel model) {
+		this.model = model;
 	}
 
-	public boolean przypisanieDoGrupy(int aNrGrupy) {
-		throw new UnsupportedOperationException();
+	/**
+	 * PU01 Rejestracja do grupy.
+	 * @return true jeśli (w przyszłości) rejestracja się powiedzie.
+	 */
+	public boolean przypisanieDoGrupy(int NrGrupy, int NrStudenta) {
+		throw new UnsupportedOperationException("przypisanieDoGrupy() niezaimplementowana");
+		// albo: return false;
 	}
 }

@@ -2,7 +2,7 @@ public interface IGrupaZajeciowa {
 
 	public int dajIloscMiejsc();
 
-	public String[] dajStudentow();
+	public int[] dajStudentow();
 
 	public String dajKierunek();
 
