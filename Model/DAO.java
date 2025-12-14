@@ -10,7 +10,7 @@ public class DAO implements IDAO {
 		throw new UnsupportedOperationException();
 	}
 
-	public String znajdzStudenta(int aNrStudenta) {
+	public Student znajdzStudenta(int aNrStudenta) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -18,15 +18,15 @@ public class DAO implements IDAO {
 		throw new UnsupportedOperationException();
 	}
 
-	public void zarejestrujStudentaDoGrupy(int aNrGrupy) {
+	public void zarejestrujStudentaDoGrupy(int NrGrupy, int NrStudenta) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void wyrejestrujStudentaZGrupy(int aNrGrupy) {
+	public void wyrejestrujStudentaZGrupy(int NrGrupy, int NrStudenta) {
 		throw new UnsupportedOperationException();
 	}
 
-	public String znajdzAdministratora(int aNrAdministratora) {
+	public Administrator znajdzAdministratora(int aNrAdministratora) {
 		throw new UnsupportedOperationException();
 	}
 
