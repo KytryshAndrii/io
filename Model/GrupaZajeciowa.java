@@ -9,7 +9,7 @@ public class GrupaZajeciowa implements IGrupaZajeciowa {
 
 	public GrupaZajeciowa(int IloscMiejsc, int[] Studenty, String Kierunek, String OpisGrupy, int NrGrupy) {
 //		throw new UnsupportedOperationException();
-		this._iloscMiejsc = IloscMiejsc;
+		this._iloscMiejsc = IloscMiejsc; // dany atrybut pokazuje ilosc pozostalych miejsc. Dazy do 0
 		this._kierunek = Kierunek;
 		this._nrGrupy = NrGrupy;
 		this._studenty = Studenty;

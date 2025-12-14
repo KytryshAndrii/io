@@ -6,9 +6,7 @@ public class DAO implements IDAO {
 
 	}
 
-	public void dodajWpisDoRejestruZdarzenie(String aZdarzenie) {
-		throw new UnsupportedOperationException();
-	}
+	public void dodajWpisDoRejestruZdarzen(String Zdarzenie) {}
 
 	public String znajdzStudenta(int aNrStudenta) {
 		throw new UnsupportedOperationException();

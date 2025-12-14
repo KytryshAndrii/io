@@ -18,12 +18,27 @@ public class Model implements IModel {
 		throw new UnsupportedOperationException();
 	}
 
-	public boolean weryfikacjaGrupyZajeciowej(int NrStudenta, int NrGrupy){
-		IGrupaZajeciowa weryfikowanaGrupa = _kontekstSystemu.dajGrupe(NrGrupy);
+	public boolean czyGrupaZajeciowaJestPelna( int NrGrupy){
+		IGrupaZajeciowa weryfikowanaGrupa =
+				_kontekstSystemu.dajGrupe(NrGrupy);
+
+        return weryfikowanaGrupa.dajIloscMiejsc() == 0;
+    }
+
+	public boolean czyStudentJestWGrupie(int NrStudenta, int NrGrupy) {
+		IGrupaZajeciowa grupa = _kontekstSystemu.dajGrupe(NrGrupy);
+		int[] studenci = grupa.dajStudentow();
+
+		for (int i = 0; i < studenci.length; i++) {
+			if (studenci[i] == NrStudenta) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public void zarejestrowanieZdarzenia(String Zdarzenie) {
-		throw new UnsupportedOperationException();
+		_dao.dodajWpisDoRejestruZdarzen(Zdarzenie);
 	}
 
 	public void usuniecieGrupyZajeciowej(int NrGrupy) {
@@ -42,8 +57,8 @@ public class Model implements IModel {
 		throw new UnsupportedOperationException();
 	}
 
-	public void rejestracjaStudenta(int NrStudenta) {
-		throw new UnsupportedOperationException();
+	public void rejestracjaStudenta(int NrStudenta, int NrGrupy) {
+		_kontekstSystemu.dodajStudentaDoGrupy(NrStudenta, NrGrupy);
 	}
 
 	public void wyrejestrowanieStudenta(int NrStudenta) {

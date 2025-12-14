@@ -16,14 +16,16 @@ public class RejestracjaDoGrupy extends StrategiaEdycjiRejestracjiStudenta {
 	 * PU01 Rejestracja do grupy.
 	 * @return true jeśli (w przyszłości) rejestracja się powiedzie.
 	 */
-	public boolean przypisanieDoGrupy(int NrGrupy, int NrStudenta) {
-//		check if group exists and if group is not full. If not , add user to group if yes show error
-		try {
-			this.model.weryfikacjaGrupyZajeciowej(NrStudenta, NrGrupy);
+	public void przypisanieDoGrupy(int NrGrupy, int NrStudenta) {
+		if (this.model.czyGrupaZajeciowaJestPelna(NrGrupy)) {
+			throw new IllegalStateException("Grupa zajęciowa jest pełna");
 		}
-		catch(Exception e) {
-			throw new ArrayIndexOutOfBoundsException("Grupa zajeciowa nie znaleziona");
+		if (this.model.czyStudentJestWGrupie(NrStudenta, NrGrupy)) {
+			throw new IllegalStateException("Student obecnie znajduje się w grupie");
 		}
-		// albo: return false;
+		this.model.rejestracjaStudenta(NrStudenta, NrGrupy);
+		this.model.zarejestrowanieZdarzenia(
+				"Student nr " + NrStudenta + " zapisany do grupy nr " + NrGrupy
+		);
 	}
 }

@@ -6,7 +6,9 @@ public interface IModel {
 
 	public String[] znalezienieDostepnychGrupZajeciowych(int aNrStudenta);
 
-	public boolean weryfikacjaGrupyZajeciowej(int NrStudenta, int NrGrupy);
+	public boolean czyGrupaZajeciowaJestPelna(int NrGrupy);
+
+	public boolean czyStudentJestWGrupie(int NrStudenta, int NrGrupy);
 
 	public void zarejestrowanieZdarzenia(String aZdarzenie);
 
@@ -18,7 +20,7 @@ public interface IModel {
 
 	public void edycjaGrupyZajeciowej(int aNrGrupy);
 
-	public void rejestracjaStudenta(int aNrStudenta);
+	public void rejestracjaStudenta(int NrStudenta, int NrGrupy);
 
 	public void wyrejestrowanieStudenta(int aNrStudenta);
 }

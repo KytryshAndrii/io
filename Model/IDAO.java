@@ -2,7 +2,7 @@ package Model;
 
 public interface IDAO {
 
-	public void dodajWpisDoRejestruZdarzenie(String aZdarzenie);
+	public void dodajWpisDoRejestruZdarzen(String Zdarzenie);
 
 	public String znajdzStudenta(int aNrStudenta);
 
