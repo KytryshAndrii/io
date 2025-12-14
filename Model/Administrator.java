@@ -14,19 +14,23 @@ public class Administrator implements  IUzytkownik{
 		this._pocztaElektroniczna = pocztaElektroniczna;
 	}
 
+    @Override
 	public String dajImie() {
-		throw new UnsupportedOperationException();
+		return _imie;
 	}
 
+    @Override
 	public String dajNazwisko() {
-		throw new UnsupportedOperationException();
+		return _nazwisko;
 	}
 
+    @Override
 	public String dajPoczteElektroniczna() {
-		throw new UnsupportedOperationException();
+		return _pocztaElektroniczna;
 	}
 
+    @Override
 	public String opisz() {
-		throw new UnsupportedOperationException();
+		return "Administrator: " + _imie + " " + _nazwisko +  ", email:  " + _pocztaElektroniczna;
 	}
 }
