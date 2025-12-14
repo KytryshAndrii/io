@@ -11,26 +11,14 @@ public class Student extends Uzytkownik {
 	}
 
 	public int dajNrStudenta() {
-		throw new UnsupportedOperationException();
+		return _nrStudenta;
 	}
 
 	public String dajKierunek() {
-		throw new UnsupportedOperationException();
-	}
-
-	public String dajImie() {
-		throw new UnsupportedOperationException();
-	}
-
-	public String dajNazwisko() {
-		throw new UnsupportedOperationException();
-	}
-
-	public String dajPoczteElektroniczna() {
-		throw new UnsupportedOperationException();
+		return _kierunek;
 	}
 
 	public String opisz() {
-		throw new UnsupportedOperationException();
+		return super.opisz() + ", Student [nr: " + _nrStudenta + ", kierunek: " + _kierunek + "]";
 	}
 }

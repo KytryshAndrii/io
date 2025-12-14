@@ -4,23 +4,26 @@ public abstract class Uzytkownik implements IUzytkownik {
 	protected IUzytkownik _uzytkownik;
 
 	public Uzytkownik(IUzytkownik uzytkownik) {
-//        throw new UnsupportedOperationException();
+        this._uzytkownik = uzytkownik;
 	}
 
+    @Override
 	public String dajImie() {
-		throw new UnsupportedOperationException();
+		return _uzytkownik.dajImie();
 	}
 
+    @Override
 	public String dajNazwisko() {
-		throw new UnsupportedOperationException();
+		return _uzytkownik.dajNazwisko();
 	}
 
+    @Override
 	public String dajPoczteElektroniczna() {
-		throw new UnsupportedOperationException();
+		return _uzytkownik.dajPoczteElektroniczna();
 	}
 
+    @Override
 	public String opisz() {
-		throw new UnsupportedOperationException();
+		return _uzytkownik.opisz();
 	}
-
 }
