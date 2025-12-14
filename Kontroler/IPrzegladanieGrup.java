@@ -2,5 +2,9 @@ package Kontroler;
 
 public interface IPrzegladanieGrup {
 
-	public String wyswietlenieDanychOGrupie(int aNrStudenta);
+    private String wyswietlenieDanychOGrupie(String daneOGrupie) {
+        return null;
+    }
+
+    public String[] wyswietlenieDanychOGrupach(int NrStudenta);
 }

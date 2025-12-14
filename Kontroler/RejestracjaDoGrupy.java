@@ -14,7 +14,7 @@ public class RejestracjaDoGrupy extends StrategiaEdycjiRejestracjiStudenta {
 
 	/**
 	 * PU01 Rejestracja do grupy.
-	 * @return true jeśli (w przyszłości) rejestracja się powiedzie.
+	 * Jesli rejestracja się powiedzie żadny wątek nie zostanie wywołany.
 	 */
 	public void przypisanieDoGrupy(int NrGrupy, int NrStudenta) {
 		if (this.model.czyGrupaZajeciowaJestPelna(NrGrupy)) {
