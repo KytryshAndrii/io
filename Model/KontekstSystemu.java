@@ -11,15 +11,31 @@ public class KontekstSystemu {
 		this._uzytkownicy = Dao.znajdzUzytkownikow();
 	}
 
-	public IUzytkownik dajStudenta(int Nr) {
-		throw new UnsupportedOperationException();
-	}
+    public IUzytkownik dajStudenta(int Nr) {
+        Student student = _dao.znajdzStudenta(Nr);
 
-	public IUzytkownik dajAdministratora(int Nr) {
-		throw new UnsupportedOperationException("dajAdministratora() niezaimplementowana");
-	}
+        if (student == null) {
+            throw new IllegalArgumentException(
+                    "Student o numerze " + Nr + " nie znaleziony"
+            );
+        }
 
-	public IGrupaZajeciowa dajGrupe(int NrGrupy) {
+        return student;
+    }
+
+    public IUzytkownik dajAdministratora(int Nr) {
+        Administrator administrator = _dao.znajdzAdministratora(Nr);
+
+        if (administrator == null) {
+            throw new IllegalArgumentException(
+                    "Administrator o numerze " + Nr + " nie znaleziony"
+            );
+        }
+
+        return administrator;
+    }
+
+    public IGrupaZajeciowa dajGrupe(int NrGrupy) {
 		for (int i = 0; i < _grupyZajeciowe.length; i++) {
 			if (_grupyZajeciowe[i] != null &&
 					_grupyZajeciowe[i].dajNrGrupy() == NrGrupy) {
@@ -33,15 +49,23 @@ public class KontekstSystemu {
 		);
 	}
 
-	public IGrupaZajeciowa usunStudentaZGrupy(int NrStudenta, int NrGrupy) {
-		throw new UnsupportedOperationException();
-	}
+	public void usunStudentaZGrupy(int NrStudenta, int NrGrupy) {
+        IGrupaZajeciowa grupa = dajGrupe(NrGrupy);
+        int[] studenci = grupa.dajStudentow();
 
-	public IGrupaZajeciowa dodajStudentaDoGrupy(int NrStudenta, int NrGrupy) {
-		throw new UnsupportedOperationException("dodajStudentaDoGrupy() niezaimplementowana");
-	}
+        _dao.wyrejestrujStudentaZGrupy(grupa.dajNrGrupy(), studenci[NrStudenta]);
+ 	}
 
-	public IGrupaZajeciowa[] usunGrupe(int NrGrupy) {
-		throw new UnsupportedOperationException();
+	public void dodajStudentaDoGrupy(int NrStudenta, int NrGrupy) {
+		IGrupaZajeciowa grupa = dajGrupe(NrGrupy);
+        int[] studenci = grupa.dajStudentow();
+
+        _dao.zarejestrujStudentaDoGrupy(grupa.dajNrGrupy(), studenci[NrStudenta]);
+    }
+
+	public void usunGrupe(int NrGrupy) {
+		IGrupaZajeciowa grupa = dajGrupe(NrGrupy);
+
+        _dao.usunGrupe(grupa.dajNrGrupy());
 	}
 }
