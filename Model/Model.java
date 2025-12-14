@@ -15,7 +15,9 @@ public class Model implements IModel {
 	}
 
 	public String[] znalezienieDostepnychGrupZajeciowych(int NrStudenta) {
-		throw new UnsupportedOperationException();
+		IUzytkownik student = _kontekstSystemu.dajStudenta(NrStudenta);
+		student.
+		_dao.znajdzGrupy()
 	}
 
 	public boolean czyGrupaZajeciowaJestPelna( int NrGrupy){
