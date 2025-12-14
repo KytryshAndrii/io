@@ -17,26 +17,26 @@ public class GrupaZajeciowa implements IGrupaZajeciowa {
 	}
 
 	public int dajIloscMiejsc() {
-		throw new UnsupportedOperationException();
+		return _iloscMiejsc;
 	}
 
 	public int[] dajStudentow() {
-		throw new UnsupportedOperationException();
+		return _studenty;
 	}
 
 	public String dajKierunek() {
-		throw new UnsupportedOperationException();
-	}
-
-	public String dajOpisGrupy() {
-		throw new UnsupportedOperationException();
-	}
-
-	public String opisz() {
-		throw new UnsupportedOperationException();
+		return _kierunek;
 	}
 
 	public int dajNrGrupy() {
-		throw new UnsupportedOperationException();
+		return _nrGrupy;
+	}
+
+	public String dajOpisGrupy() {
+		return _opisGrupy;
+	}
+
+	public String opisz() {
+		return "Grupa zajeciowa nr ..... Dane gruy";
 	}
 }

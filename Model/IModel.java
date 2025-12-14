@@ -6,6 +6,8 @@ public interface IModel {
 
 	public String[] znalezienieDostepnychGrupZajeciowych(int aNrStudenta);
 
+	public boolean weryfikacjaGrupyZajeciowej(int NrStudenta, int NrGrupy);
+
 	public void zarejestrowanieZdarzenia(String aZdarzenie);
 
 	public void usuniecieGrupyZajeciowej(int aNrGrupy);

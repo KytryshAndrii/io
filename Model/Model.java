@@ -18,6 +18,10 @@ public class Model implements IModel {
 		throw new UnsupportedOperationException();
 	}
 
+	public boolean weryfikacjaGrupyZajeciowej(int NrStudenta, int NrGrupy){
+		IGrupaZajeciowa weryfikowanaGrupa = _kontekstSystemu.dajGrupe(NrGrupy);
+	}
+
 	public void zarejestrowanieZdarzenia(String Zdarzenie) {
 		throw new UnsupportedOperationException();
 	}
