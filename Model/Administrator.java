@@ -29,6 +29,11 @@ public class Administrator implements  IUzytkownik{
 		return _pocztaElektroniczna;
 	}
 
+	@Override
+	public int dajNr(){
+		return _nr;
+	}
+
     @Override
 	public String opisz() {
 		return "Administrator: " + _imie + " " + _nazwisko +  ", email:  " + _pocztaElektroniczna;

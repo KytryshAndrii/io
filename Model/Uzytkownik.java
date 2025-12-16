@@ -22,6 +22,11 @@ public abstract class Uzytkownik implements IUzytkownik {
 		return _uzytkownik.dajPoczteElektroniczna();
 	}
 
+	@Override
+	public int dajNr(){
+		return _uzytkownik.dajNr();
+	}
+
     @Override
 	public String opisz() {
 		return _uzytkownik.opisz();

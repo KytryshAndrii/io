@@ -8,8 +8,8 @@ public class DAO implements IDAO {
 
 	public void dodajWpisDoRejestruZdarzen(String Zdarzenie) {}
 
-	public Student znajdzStudenta(int aNrStudenta) {
-		throw new UnsupportedOperationException();
+	public String[] znajdzStudenta(int aNrStudenta) {
+		return new String[] { "1", "Grzegorz", "Braun", "gbraun@gmail.com", "000000", "zarządzanie gasnicą"};
 	}
 
 	public void edytujRejestracjiStudenta(int aNrStudenta) {
@@ -24,8 +24,8 @@ public class DAO implements IDAO {
 		throw new UnsupportedOperationException();
 	}
 
-	public Administrator znajdzAdministratora(int aNrAdministratora) {
-		throw new UnsupportedOperationException();
+	public String[] znajdzAdministratora(int aNrAdministratora) {
+		return new String[] { "0", "Karol", "Nawrocki", "knawrocki@gmail.com"};
 	}
 
 	public String znajdzGrupe(int aNrGrupy) {

@@ -8,5 +8,7 @@ public interface IUzytkownik {
 
 	public String dajPoczteElektroniczna();
 
+	public int dajNr();
+
 	public String opisz();
 }

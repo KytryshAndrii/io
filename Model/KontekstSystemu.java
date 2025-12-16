@@ -11,29 +11,34 @@ public class KontekstSystemu {
 		this._uzytkownicy = Dao.znajdzUzytkownikow();
 	}
 
-    public IUzytkownik dajStudenta(int Nr) {
-        Student student = _dao.znajdzStudenta(Nr);
+	public IUzytkownik dajStudenta(int Nr) {
 
-        if (student == null) {
-            throw new IllegalArgumentException(
-                    "Student o numerze " + Nr + " nie znaleziony"
-            );
-        }
+		String[] daneStudenta = _dao.znajdzStudenta(Nr);
 
-        return student;
-    }
+		if (daneStudenta == null) {
+			throw new IllegalArgumentException(
+					"Student o numerze " + Nr + " nie znaleziony"
+			);
+		}
 
-    public IUzytkownik dajAdministratora(int Nr) {
-        Administrator administrator = _dao.znajdzAdministratora(Nr);
+		IFabrykaUzytkownika fabryka = new FabrykaStudenta();
 
-        if (administrator == null) {
-            throw new IllegalArgumentException(
-                    "Administrator o numerze " + Nr + " nie znaleziony"
-            );
-        }
+		return fabryka.utworzUzytkownika(daneStudenta);
+	}
+	public IUzytkownik dajAdministratora(int Nr) {
 
-        return administrator;
-    }
+		String[] daneAdministratora = _dao.znajdzAdministratora(Nr);
+
+		if (daneAdministratora == null) {
+			throw new IllegalArgumentException(
+					"Administrator o numerze " + Nr + " nie znaleziony"
+			);
+		}
+
+		IFabrykaUzytkownika fabryka = new FabrykaAdministratora();
+
+		return fabryka.utworzUzytkownika(daneAdministratora);
+	}
 
     public IGrupaZajeciowa dajGrupe(int NrGrupy) {
 		for (int i = 0; i < _grupyZajeciowe.length; i++) {

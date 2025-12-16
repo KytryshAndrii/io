@@ -4,7 +4,7 @@ public interface IDAO {
 
 	public void dodajWpisDoRejestruZdarzen(String Zdarzenie);
 
-	public Student znajdzStudenta(int aNrStudenta);
+	public String[] znajdzStudenta(int aNrStudenta);
 
 	public void edytujRejestracjeStudenta(int aNrStudenta);
 
@@ -12,7 +12,7 @@ public interface IDAO {
 
 	public void wyrejestrujStudentaZGrupy(int NrGrupy, int NrStudenta);
 
-	public Administrator znajdzAdministratora(int aNrAdministratora);
+	public String[] znajdzAdministratora(int aNrAdministratora);
 
 	public String znajdzGrupe(int aNrGrupy);
 
