@@ -37,6 +37,24 @@ public class GrupaZajeciowa implements IGrupaZajeciowa {
 	}
 
 	public String opisz() {
-		return "Grupa zajeciowa nr ..... Dane gruy";
+		StringBuilder builder = new StringBuilder();
+		builder.append(_nrGrupy).append(";");
+		builder.append(_iloscMiejsc).append(";");
+
+		// Konwersja tablicy studentów do formatu [1,2,3]
+		if (_studenty != null) {
+			for (int i = 0; i < _studenty.length; i++) {
+				builder.append(_studenty[i]);
+				if (i < _studenty.length - 1) {
+					builder.append(",");
+				}
+			}
+		}
+		builder.append(";");
+
+		builder.append(_kierunek).append(";");
+		builder.append(_opisGrupy);
+
+		return builder.toString();
 	}
 }

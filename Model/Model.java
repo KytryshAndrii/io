@@ -1,6 +1,9 @@
 package Model;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Model implements IModel {
 	private KontekstSystemu _kontekstSystemu;
 	private IDAO _dao;
@@ -15,9 +18,17 @@ public class Model implements IModel {
 	}
 
 	public String[] znalezienieDostepnychGrupZajeciowych(int NrStudenta) {
-		IUzytkownik student = _kontekstSystemu.dajStudenta(NrStudenta);
-		student.
-		_dao.znajdzGrupy()
+		IUzytkownik uzytkownikStudent = _kontekstSystemu.dajStudenta(NrStudenta);
+		Student student = (Student) uzytkownikStudent;
+		IGrupaZajeciowa[] grupy = this._dao.znajdzGrupy();
+
+		List<String> wynik = new ArrayList<>();
+		for (IGrupaZajeciowa grupa : grupy) {
+			if (grupa.dajKierunek().equals(student.dajKierunek())) {
+				wynik.add(grupa.opisz());
+			}
+		}
+		return wynik.toArray(new String[0]);
 	}
 
 	public boolean czyGrupaZajeciowaJestPelna( int NrGrupy){
