@@ -10,17 +10,17 @@ public interface IModel {
 
 	public boolean czyStudentJestWGrupie(int NrStudenta, int NrGrupy);
 
-	public void zarejestrowanieZdarzenia(String aZdarzenie);
+	public void zarejestrowanieZdarzenia(String Zdarzenie);
 
-	public void usuniecieGrupyZajeciowej(int aNrGrupy);
+	public void usuniecieGrupyZajeciowej(int NrGrupy);
 
-	public void udostepnienieGrupyDoRejestracji(int aNrGrupy);
+	public void udostepnienieGrupyDoRejestracji(int NrGrupy);
 
-	public int tworzenieGrupyZajeciowej(String aGrupa);
+	public int tworzenieGrupyZajeciowej(String Grupa);
 
-	public void edycjaGrupyZajeciowej(int aNrGrupy);
+	public void edycjaGrupyZajeciowej(int NrGrupy);
 
 	public void rejestracjaStudenta(int NrStudenta, int NrGrupy);
 
-	public void wyrejestrowanieStudenta(int aNrStudenta);
+	public boolean wyrejestrowanieStudenta(int NrStudenta, int NrGrupy) ;
 }

@@ -22,7 +22,9 @@ public interface IDAO {
 
 	public IUzytkownik[] znajdzUzytkownikow();
 
-	public void edytujLimitMiejscWGrupie(int aNrGrupy);
+	public void zwiekszLimitMiejscWGrupie(int NrGrupy);
+
+	public void zmniejszLimitMiejscWGrupie(int NrGrupy);
 
 	public void usunGrupe(int aNrGrupy);
 }

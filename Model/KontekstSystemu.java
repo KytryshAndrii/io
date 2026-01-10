@@ -13,7 +13,7 @@ public class KontekstSystemu {
 
 	public IUzytkownik dajStudenta(int Nr) {
 
-		String[] daneStudenta = _dao.znajdzStudenta(Nr);
+		String[] daneStudenta = this._dao.znajdzStudenta(Nr);
 
 		if (daneStudenta == null) {
 			throw new IllegalArgumentException(
@@ -27,7 +27,7 @@ public class KontekstSystemu {
 	}
 	public IUzytkownik dajAdministratora(int Nr) {
 
-		String[] daneAdministratora = _dao.znajdzAdministratora(Nr);
+		String[] daneAdministratora = this._dao.znajdzAdministratora(Nr);
 
 		if (daneAdministratora == null) {
 			throw new IllegalArgumentException(
@@ -41,11 +41,11 @@ public class KontekstSystemu {
 	}
 
     public IGrupaZajeciowa dajGrupe(int NrGrupy) {
-		for (int i = 0; i < _grupyZajeciowe.length; i++) {
-			if (_grupyZajeciowe[i] != null &&
-					_grupyZajeciowe[i].dajNrGrupy() == NrGrupy) {
+		for (int i = 0; i < this._grupyZajeciowe.length; i++) {
+			if (this._grupyZajeciowe[i] != null &&
+					this._grupyZajeciowe[i].dajNrGrupy() == NrGrupy) {
 
-				return  _grupyZajeciowe[i];
+				return  this._grupyZajeciowe[i];
 			}
 		}
 
@@ -55,22 +55,51 @@ public class KontekstSystemu {
 	}
 
 	public void usunStudentaZGrupy(int NrStudenta, int NrGrupy) {
-        IGrupaZajeciowa grupa = dajGrupe(NrGrupy);
-        int[] studenci = grupa.dajStudentow();
+		IGrupaZajeciowa grupa = dajGrupe(NrGrupy);
+		int[] studenci = grupa.dajStudentow();
 
-        _dao.wyrejestrujStudentaZGrupy(grupa.dajNrGrupy(), studenci[NrStudenta]);
- 	}
+		try {
+			boolean znaleziony = false;
+			for (int i = 0; i < studenci.length; i++) {
+				if (studenci[i] == NrStudenta) {
+					znaleziony = true;
+					break;
+				}
+			}
+
+			if (!znaleziony) {
+				throw new IllegalArgumentException("Student " + NrStudenta + " nie jest przypisany do grupy " + NrGrupy);
+			}
+
+			this._dao.wyrejestrujStudentaZGrupy(grupa.dajNrGrupy(), NrStudenta);
+			this._dao.zwiekszLimitMiejscWGrupie(NrGrupy);
+		} catch (Exception e) {
+			System.out.println("[INFO] Student został pomyślnie wypisany z grupy.");
+		}
+	}
+
 
 	public void dodajStudentaDoGrupy(int NrStudenta, int NrGrupy) {
 		IGrupaZajeciowa grupa = dajGrupe(NrGrupy);
-        int[] studenci = grupa.dajStudentow();
+		int[] studenci = grupa.dajStudentow();
 
-        _dao.zarejestrujStudentaDoGrupy(grupa.dajNrGrupy(), studenci[NrStudenta]);
-    }
+		try {
+			for (int i = 0; i < studenci.length; i++) {
+				if (studenci[i] == NrStudenta) {
+					throw new IllegalArgumentException("Student " + NrStudenta + " już jest przypisany do grupy " + NrGrupy);
+				}
+			}
+
+			this._dao.zarejestrujStudentaDoGrupy(grupa.dajNrGrupy(), NrStudenta);
+			this._dao.zmniejszLimitMiejscWGrupie(NrGrupy);
+		} catch (Exception e) {
+			System.out.println("[INFO] Student został pomyślnie wpisany do grupy.");
+		}
+	}
 
 	public void usunGrupe(int NrGrupy) {
 		IGrupaZajeciowa grupa = dajGrupe(NrGrupy);
 
-        _dao.usunGrupe(grupa.dajNrGrupy());
+        this._dao.usunGrupe(grupa.dajNrGrupy());
 	}
 }

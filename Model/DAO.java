@@ -42,8 +42,11 @@ public class DAO implements IDAO {
 
 	public IUzytkownik[] znajdzUzytkownikow(){throw new UnsupportedOperationException();}
 
-	public void edytujLimitMiejscWGrupie(int aNrGrupy) {
-		throw new UnsupportedOperationException();
+	public void zwiekszLimitMiejscWGrupie(int NrGrupy) {
+		return;
+	}
+	public void zmniejszLimitMiejscWGrupie(int NrGrupy){
+		return;
 	}
 
 	public void usunGrupe(int aNrGrupy) {

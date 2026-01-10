@@ -18,7 +18,7 @@ public class Model implements IModel {
 	}
 
 	public String[] znalezienieDostepnychGrupZajeciowych(int NrStudenta) {
-		IUzytkownik uzytkownikStudent = _kontekstSystemu.dajStudenta(NrStudenta);
+		IUzytkownik uzytkownikStudent = this._kontekstSystemu.dajStudenta(NrStudenta);
 		Student student = (Student) uzytkownikStudent;
 		IGrupaZajeciowa[] grupy = this._dao.znajdzGrupy();
 
@@ -33,13 +33,13 @@ public class Model implements IModel {
 
 	public boolean czyGrupaZajeciowaJestPelna( int NrGrupy){
 		IGrupaZajeciowa weryfikowanaGrupa =
-				_kontekstSystemu.dajGrupe(NrGrupy);
+				this._kontekstSystemu.dajGrupe(NrGrupy);
 
         return weryfikowanaGrupa.dajIloscMiejsc() == 0;
     }
 
 	public boolean czyStudentJestWGrupie(int NrStudenta, int NrGrupy) {
-		IGrupaZajeciowa grupa = _kontekstSystemu.dajGrupe(NrGrupy);
+		IGrupaZajeciowa grupa = this._kontekstSystemu.dajGrupe(NrGrupy);
 		int[] studenci = grupa.dajStudentow();
 
 		for (int i = 0; i < studenci.length; i++) {
@@ -51,7 +51,7 @@ public class Model implements IModel {
 	}
 
 	public void zarejestrowanieZdarzenia(String Zdarzenie) {
-		_dao.dodajWpisDoRejestruZdarzen(Zdarzenie);
+		this._dao.dodajWpisDoRejestruZdarzen(Zdarzenie);
 	}
 
 	public void usuniecieGrupyZajeciowej(int NrGrupy) {
@@ -71,10 +71,15 @@ public class Model implements IModel {
 	}
 
 	public void rejestracjaStudenta(int NrStudenta, int NrGrupy) {
-		_kontekstSystemu.dodajStudentaDoGrupy(NrStudenta, NrGrupy);
+		this._kontekstSystemu.dodajStudentaDoGrupy(NrStudenta, NrGrupy);
 	}
 
-	public void wyrejestrowanieStudenta(int NrStudenta) {
-		throw new UnsupportedOperationException();
+	public boolean wyrejestrowanieStudenta(int NrStudenta, int NrGrupy) {
+		try {
+			this._kontekstSystemu.usunStudentaZGrupy(NrStudenta, NrGrupy);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 }

@@ -14,10 +14,21 @@ public class WyrejestrowanieZGrupy extends StrategiaEdycjiRejestracjiStudenta {
 	 * @return true jeśli  proces wyrejestrowania się powiedzie.
 	 */
 	public boolean wypisanieZGrupy(int NrGrupy, int NrStudenta) {
-		throw new UnsupportedOperationException(" wypisanieZGrupy() niezaimplementowana");
+		boolean sukces = model.wyrejestrowanieStudenta(NrStudenta, NrGrupy);
+
+		if (sukces) {
+			potwierdzenieWyrejestrowania(NrStudenta, NrGrupy);
+			return true;
+		} else {
+			PrzekazanieInformacjiUzytkownikowi
+					.przekazanieInformacji("Nie udało się wypisać studenta z grupy.");
+			return false;
+		}
 	}
 
-	private boolean potwierdzenieWyrejestrowania(int NrStudenta) {
-		throw new UnsupportedOperationException("potwierdzenieWyrejestrowania() niezaimplementowana");
+	private boolean potwierdzenieWyrejestrowania(int NrStudenta, int NrGrupy) {
+		PrzekazanieInformacjiUzytkownikowi
+				.przekazanieInformacji("Student o numerze " + NrStudenta + " został wypisany z grupy " + NrGrupy + "pomyślnie .");
+		return true;
 	}
 }
