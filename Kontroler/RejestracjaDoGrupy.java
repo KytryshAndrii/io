@@ -2,14 +2,11 @@ package Kontroler;
 
 import Model.IModel;
 
-import java.util.Arrays;
 
 public class RejestracjaDoGrupy extends StrategiaEdycjiRejestracjiStudenta {
 
-	private final IModel model;
-
 	public RejestracjaDoGrupy(IModel model) {
-		this.model = model;
+		super(model);
 	}
 
 	/**
@@ -17,15 +14,26 @@ public class RejestracjaDoGrupy extends StrategiaEdycjiRejestracjiStudenta {
 	 * Jesli rejestracja się powiedzie żadny wątek nie zostanie wywołany.
 	 */
 	public void przypisanieDoGrupy(int NrGrupy, int NrStudenta) {
-		if (this.model.czyGrupaZajeciowaJestPelna(NrGrupy)) {
+		if (this._model.czyGrupaZajeciowaJestPelna(NrGrupy)) {
 			throw new IllegalStateException("Grupa zajęciowa jest pełna");
 		}
-		if (this.model.czyStudentJestWGrupie(NrStudenta, NrGrupy)) {
+		if (this._model.czyStudentJestWGrupie(NrStudenta, NrGrupy)) {
 			throw new IllegalStateException("Student obecnie znajduje się w grupie");
 		}
-		this.model.rejestracjaStudenta(NrStudenta, NrGrupy);
-		this.model.zarejestrowanieZdarzenia(
+		this._model.rejestracjaStudenta(NrStudenta, NrGrupy);
+		this._model.zarejestrowanieZdarzenia(
 				"Student nr " + NrStudenta + " zapisany do grupy nr " + NrGrupy
 		);
+	}
+
+	@Override
+	public boolean ukonczEdycje() {
+		try {
+			przypisanieDoGrupy(this._nrGrupy, this._nrStudenta);
+			return true;
+		} catch (Exception e) {
+			PrzekazanieInformacjiUzytkownikowi.przekazanieInformacji(e.getMessage());
+			return false;
+		}
 	}
 }

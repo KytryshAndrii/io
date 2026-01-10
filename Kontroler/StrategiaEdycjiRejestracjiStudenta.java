@@ -7,7 +7,14 @@ public abstract class StrategiaEdycjiRejestracjiStudenta {
 	protected int _nrGrupy;
 	protected int _nrStudenta;
 
-	public int wyborGrupy(int aNrStudenta) {
-		throw new UnsupportedOperationException();
+	public StrategiaEdycjiRejestracjiStudenta(IModel model) {
+		this._model = model;
 	}
+
+	public final void ustawDane(int nrGrupy, int nrStudenta) {
+		this._nrGrupy = nrGrupy;
+		this._nrStudenta = nrStudenta;
+	}
+
+	public abstract boolean ukonczEdycje();
 }

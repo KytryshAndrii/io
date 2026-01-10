@@ -4,17 +4,16 @@ import Model.IModel;
 
 public class WyrejestrowanieZGrupy extends StrategiaEdycjiRejestracjiStudenta {
 
-	private final IModel model;
 
 	public WyrejestrowanieZGrupy(IModel model) {
-		this.model = model;
+		super(model);
 	}
 	/**
 	 * PU03 Wyrejestrowanie z grupy.
 	 * @return true jeśli  proces wyrejestrowania się powiedzie.
 	 */
-	public boolean wypisanieZGrupy(int NrGrupy, int NrStudenta) {
-		boolean sukces = model.wyrejestrowanieStudenta(NrStudenta, NrGrupy);
+	private boolean wypisanieZGrupy(int NrGrupy, int NrStudenta) {
+		boolean sukces = this._model.wyrejestrowanieStudenta(NrStudenta, NrGrupy);
 
 		if (sukces) {
 			potwierdzenieWyrejestrowania(NrStudenta, NrGrupy);
@@ -30,5 +29,10 @@ public class WyrejestrowanieZGrupy extends StrategiaEdycjiRejestracjiStudenta {
 		PrzekazanieInformacjiUzytkownikowi
 				.przekazanieInformacji("Student o numerze " + NrStudenta + " został wypisany z grupy " + NrGrupy + "pomyślnie .");
 		return true;
+	}
+
+	@Override
+	public boolean ukonczEdycje() {
+		return wypisanieZGrupy(this._nrGrupy, this._nrStudenta);
 	}
 }
