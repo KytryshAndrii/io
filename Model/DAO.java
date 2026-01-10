@@ -61,4 +61,8 @@ public class DAO implements IDAO {
 	public void edytujRejestracjeStudenta(int NrStudenta) {
 		throw new UnsupportedOperationException();
 	}
+
+	public void ustawLimitMiejscWGrupie(int NrGrupy, int nowyLimitMiejsc){
+		return;
+	}
 }

@@ -91,4 +91,23 @@ public class Model implements IModel {
 			return false;
 		}
 	}
+
+	public void zmienLimitMiejscWGrupie(int NrGrupy, int NowyLimit) {
+		IGrupaZajeciowa[] grupy = this._dao.znajdzGrupy();
+		for (IGrupaZajeciowa grupa : grupy) {
+			if (grupa.dajNrGrupy() == NrGrupy) {
+				int iloscZapisanychStudentow = grupa.dajStudentow().length;
+
+				if (NowyLimit < iloscZapisanychStudentow) {
+					throw new IllegalArgumentException(
+							"Nowy limit miejsc (" + NowyLimit + ") jest mniejszy niż liczba zapisanych studentów (" + iloscZapisanychStudentow + ")."
+					);
+				}
+
+				this._dao.ustawLimitMiejscWGrupie(NrGrupy, NowyLimit);
+				return;
+			}
+		}
+		throw new IllegalArgumentException("Grupa o numerze " + NrGrupy + " nie istnieje.");
+	}
 }

@@ -27,4 +27,6 @@ public interface IDAO {
 	public void zmniejszLimitMiejscWGrupie(int NrGrupy);
 
 	public void usunGrupe(int NrGrupy);
+
+	public void ustawLimitMiejscWGrupie(int NrGrupy, int nowyLimitMiejsc);
 }

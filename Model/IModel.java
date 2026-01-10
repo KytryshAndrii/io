@@ -22,5 +22,7 @@ public interface IModel {
 
 	public void rejestracjaStudenta(int NrStudenta, int NrGrupy);
 
-	public boolean wyrejestrowanieStudenta(int NrStudenta, int NrGrupy) ;
+	public boolean wyrejestrowanieStudenta(int NrStudenta, int NrGrupy);
+
+	public void zmienLimitMiejscWGrupie(int NrGrupy, int NowyLimit);
 }
