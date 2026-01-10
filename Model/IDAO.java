@@ -4,19 +4,19 @@ public interface IDAO {
 
 	public void dodajWpisDoRejestruZdarzen(String Zdarzenie);
 
-	public String[] znajdzStudenta(int aNrStudenta);
+	public String[] znajdzStudenta(int NrStudenta);
 
-	public void edytujRejestracjeStudenta(int aNrStudenta);
+	public void edytujRejestracjeStudenta(int NrStudenta);
 
 	public void zarejestrujStudentaDoGrupy(int NrGrupy, int NrStudenta);
 
 	public void wyrejestrujStudentaZGrupy(int NrGrupy, int NrStudenta);
 
-	public String[] znajdzAdministratora(int aNrAdministratora);
+	public String[] znajdzAdministratora(int NrAdministratora);
 
-	public String znajdzGrupe(int aNrGrupy);
+	public String znajdzGrupe(int NrGrupy);
 
-	public int dodajGrupe(String aGrupa);
+	public void dodajGrupe(String Grupa);
 
 	public IGrupaZajeciowa[] znajdzGrupy();
 
@@ -26,5 +26,5 @@ public interface IDAO {
 
 	public void zmniejszLimitMiejscWGrupie(int NrGrupy);
 
-	public void usunGrupe(int aNrGrupy);
+	public void usunGrupe(int NrGrupy);
 }

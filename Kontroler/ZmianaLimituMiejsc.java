@@ -3,10 +3,9 @@ package Kontroler;
 import Model.IModel;
 
 public class ZmianaLimituMiejsc extends StrategiaZarzadzaniaGrupaZajeciowa {
-	private IPrzegladanieGrup _przegladanieGrupy;
 
-	public ZmianaLimituMiejsc(IModel aModel) {
-		throw new UnsupportedOperationException();
+	public ZmianaLimituMiejsc(IModel Model) {
+		super(Model);
 	}
 
 	/**
@@ -15,5 +14,16 @@ public class ZmianaLimituMiejsc extends StrategiaZarzadzaniaGrupaZajeciowa {
 	 */
 	private int wprowadzenieNowegoLimituMiejsc() {
 		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public boolean zakonczenieZarzadzaniaGrupa() {
+		try {
+			this.wprowadzenieNowegoLimituMiejsc();
+			return true;
+		} catch (Exception e) {
+			PrzekazanieInformacjiUzytkownikowi.przekazanieInformacji(e.getMessage());
+			return false;
+		}
 	}
 }

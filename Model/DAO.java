@@ -32,8 +32,13 @@ public class DAO implements IDAO {
 		throw new UnsupportedOperationException();
 	}
 
-	public int dodajGrupe(String aGrupa) {
-		throw new UnsupportedOperationException();
+	public void dodajGrupe(String Grupa) {
+		String[] pola = Grupa.split(";", 4);
+		int nrGrupy = Integer.parseInt(pola[0]);
+		int iloscMiejsc = Integer.parseInt(pola[1]);
+		String kierunek = pola[2];
+		String opis = pola[3];
+		int[] studenci = new int[0];
 	}
 
 	public IGrupaZajeciowa[] znajdzGrupy() {

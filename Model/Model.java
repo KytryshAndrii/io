@@ -62,8 +62,17 @@ public class Model implements IModel {
 		throw new UnsupportedOperationException();
 	}
 
-	public int tworzenieGrupyZajeciowej(String Grupa) {
-		throw new UnsupportedOperationException();
+	public void tworzenieGrupyZajeciowej(String Grupa) {
+		String[] pola = Grupa.split(";", 4);
+		int nrGrupy = Integer.parseInt(pola[0]);
+
+		IGrupaZajeciowa[] grupy = this._dao.znajdzGrupy();
+		for (int i = 0; i < grupy.length; i++) {
+			if ( grupy[i].dajNrGrupy() == nrGrupy) {
+				throw new IllegalArgumentException("[ERROR] Grupa " + nrGrupy + " już istnieje!");
+			}
+		}
+		this._dao.dodajGrupe(Grupa);
 	}
 
 	public void edycjaGrupyZajeciowej(int NrGrupy) {

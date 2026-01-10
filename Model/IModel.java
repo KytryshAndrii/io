@@ -16,7 +16,7 @@ public interface IModel {
 
 	public void udostepnienieGrupyDoRejestracji(int NrGrupy);
 
-	public int tworzenieGrupyZajeciowej(String Grupa);
+	public void tworzenieGrupyZajeciowej(String Grupa);
 
 	public void edycjaGrupyZajeciowej(int NrGrupy);
 

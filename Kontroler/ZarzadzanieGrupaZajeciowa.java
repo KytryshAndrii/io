@@ -4,10 +4,12 @@ import Model.IModel;
 
 public class ZarzadzanieGrupaZajeciowa {
 	private IModel _model;
+	private IPrzegladanieGrup _przegladanieGrupy;
 	private StrategiaZarzadzaniaGrupaZajeciowa _strategiaZarzadzaniaGrupaZajeciowa;
 
 	public ZarzadzanieGrupaZajeciowa(IModel Model) {
 		this._model = Model;
+		this._przegladanieGrupy = new PrzegladanieGrup(Model);
 	}
 	/**
 	 * PU04 Zarzadzanie grupa zajeciowa.

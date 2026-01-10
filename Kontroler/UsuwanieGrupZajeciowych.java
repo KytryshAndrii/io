@@ -3,10 +3,9 @@ package Kontroler;
 import Model.IModel;
 
 public class UsuwanieGrupZajeciowych extends StrategiaZarzadzaniaGrupaZajeciowa {
-	private IPrzegladanieGrup _przegladanieGrupy;
 
-	public UsuwanieGrupZajeciowych(IModel aModel) {
-		throw new UnsupportedOperationException();
+	public UsuwanieGrupZajeciowych(IModel Model) {
+		super(Model);
 	}
 
 	/**
@@ -15,5 +14,16 @@ public class UsuwanieGrupZajeciowych extends StrategiaZarzadzaniaGrupaZajeciowa 
 	 */
 	private int wyborGrupyDoUsuniecia() {
 		throw new UnsupportedOperationException();
+	}
+
+	@Override
+	public boolean zakonczenieZarzadzaniaGrupa() {
+		try {
+			this.wyborGrupyDoUsuniecia();
+			return true;
+		} catch (Exception e) {
+			PrzekazanieInformacjiUzytkownikowi.przekazanieInformacji(e.getMessage());
+			return false;
+		}
 	}
 }
