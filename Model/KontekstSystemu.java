@@ -98,8 +98,6 @@ public class KontekstSystemu {
 	}
 
 	public void usunGrupe(int NrGrupy) {
-		IGrupaZajeciowa grupa = dajGrupe(NrGrupy);
-
-        this._dao.usunGrupe(grupa.dajNrGrupy());
+        this._dao.usunGrupe(NrGrupy);
 	}
 }

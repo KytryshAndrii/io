@@ -11,7 +11,6 @@ public class TworzenieGrupyZajeciowej extends StrategiaZarzadzaniaGrupaZajeciowa
 	}
 	/**
 	 * PU05 Tworzenie grupy zajeciowej.
-	 * @return int jako numer poprawnie utworzonej grupy zajeciowej.
 	 */
 	private void wprowadzenieDanychGrupy() {
 		Scanner scanner = new Scanner(System.in);
@@ -33,8 +32,7 @@ public class TworzenieGrupyZajeciowej extends StrategiaZarzadzaniaGrupaZajeciowa
 
 			String daneGrupy = nrGrupy + ";" + iloscMiejsc + ";" + kierunek + ";" + opis;
 
-			_model.tworzenieGrupyZajeciowej(daneGrupy);
-
+			this._model.tworzenieGrupyZajeciowej(daneGrupy);
 			PrzekazanieInformacjiUzytkownikowi.przekazanieInformacji(
 					"Grupa zajęciowa została poprawnie utworzona."
 			);

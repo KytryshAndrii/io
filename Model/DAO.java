@@ -12,7 +12,7 @@ public class DAO implements IDAO {
 		return new String[] { "1", "Grzegorz", "Braun", "gbraun@gmail.com", "000000", "zarządzanie gasnicą"};
 	}
 
-	public void edytujRejestracjiStudenta(int aNrStudenta) {
+	public void edytujRejestracjiStudenta(int NrStudenta) {
 		throw new UnsupportedOperationException();
 	}
 
@@ -54,11 +54,11 @@ public class DAO implements IDAO {
 		return;
 	}
 
-	public void usunGrupe(int aNrGrupy) {
+	public void usunGrupe(int NrGrupy) {
 		throw new UnsupportedOperationException();
 	}
 
-	public void edytujRejestracjeStudenta(int aNrStudenta) {
+	public void edytujRejestracjeStudenta(int NrStudenta) {
 		throw new UnsupportedOperationException();
 	}
 }

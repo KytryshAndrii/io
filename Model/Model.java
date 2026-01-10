@@ -55,7 +55,7 @@ public class Model implements IModel {
 	}
 
 	public void usuniecieGrupyZajeciowej(int NrGrupy) {
-		throw new UnsupportedOperationException();
+		this._kontekstSystemu.usunGrupe(NrGrupy);
 	}
 
 	public void udostepnienieGrupyDoRejestracji(int NrGrupy) {
