@@ -10,5 +10,9 @@ public abstract class StrategiaZarzadzaniaGrupaZajeciowa {
 		this._model = model;
 	}
 
+	public final void ustawDane(int nrGrupy) {
+		this._nrGrupy = nrGrupy;
+	}
+
 	public abstract boolean zakonczenieZarzadzaniaGrupa();
 }

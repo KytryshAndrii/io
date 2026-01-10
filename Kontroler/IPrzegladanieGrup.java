@@ -6,5 +6,7 @@ public interface IPrzegladanieGrup {
         return null;
     }
 
+    public void wyswietlenieDanychOWszystkichGrupach();
+
     public String[] wyswietlenieDanychOGrupach(int NrStudenta);
 }

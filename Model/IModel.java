@@ -25,4 +25,6 @@ public interface IModel {
 	public boolean wyrejestrowanieStudenta(int NrStudenta, int NrGrupy);
 
 	public void zmienLimitMiejscWGrupie(int NrGrupy, int NowyLimit);
+
+	public String[] dajDaneWszystkichGrup();
 }

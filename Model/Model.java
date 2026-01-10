@@ -110,4 +110,13 @@ public class Model implements IModel {
 		}
 		throw new IllegalArgumentException("Grupa o numerze " + NrGrupy + " nie istnieje.");
 	}
+
+	public String[] dajDaneWszystkichGrup() {
+		IGrupaZajeciowa[] grupy = this._dao.znajdzGrupy();
+		List<String> wynik = new ArrayList<>();
+		for (IGrupaZajeciowa grupa : grupy) {
+			wynik.add(grupa.opisz());
+		}
+		return wynik.toArray(new String[0]);
+	}
 }

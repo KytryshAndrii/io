@@ -33,13 +33,21 @@ public class PrzegladanieGrup implements IPrzegladanieGrup {
 		);
 	}
 
+	public void wyswietlenieDanychOWszystkichGrupach(){
+		String[] grupy = this._model.dajDaneWszystkichGrup();
+		for (int i = 0; i < grupy.length; i++) {
+			System.out.println(wyswietlenieDanychOGrupie(grupy[i]));
+		}
+	}
+
 	public String[] wyswietlenieDanychOGrupach(int NrStudenta){
-		String[] dostepneGrupy = _model.znalezienieDostepnychGrupZajeciowych(NrStudenta);
+		String[] dostepneGrupy = this._model.znalezienieDostepnychGrupZajeciowych(NrStudenta);
 		String[] znormalizowaneDaneOGrupach =
 				new String[dostepneGrupy.length];
 		for (int i = 0; i < dostepneGrupy.length; i++) {
 			znormalizowaneDaneOGrupach[i] =
 					wyswietlenieDanychOGrupie(dostepneGrupy[i]);
+			System.out.println(wyswietlenieDanychOGrupie(dostepneGrupy[i]));
 		}
 		return znormalizowaneDaneOGrupach;
 	}

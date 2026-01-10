@@ -36,16 +36,15 @@ public class EdycjaRejestracjiStudenta {
 		int nrGrupy = scanner.nextInt();
 
 		switch (wybor) {
-			case 1 -> _strategiaEdycjiRejestracjiStudenta = new RejestracjaDoGrupy(_model);
-			case 2 -> _strategiaEdycjiRejestracjiStudenta = new WyrejestrowanieZGrupy(_model);
+			case 1 -> _strategiaEdycjiRejestracjiStudenta = new RejestracjaDoGrupy(this._model);
+			case 2 -> _strategiaEdycjiRejestracjiStudenta = new WyrejestrowanieZGrupy(this._model);
 			default -> {
 				System.out.println("Nieprawidłowy wybór.");
 				return;
 			}
 		}
 
-		_strategiaEdycjiRejestracjiStudenta.ustawDane(nrGrupy, nrStudenta);
-
+		this._strategiaEdycjiRejestracjiStudenta.ustawDane(nrGrupy, nrStudenta);
 		boolean sukces = _strategiaEdycjiRejestracjiStudenta.ukonczEdycje();
 
 		if (sukces) {
