@@ -14,10 +14,12 @@ public class RejestracjaDoGrupy extends StrategiaEdycjiRejestracjiStudenta {
 	 * Jesli rejestracja się powiedzie żadny wątek nie zostanie wywołany.
 	 */
 	public void przypisanieDoGrupy(int NrGrupy, int NrStudenta) {
-		if (this._model.czyGrupaZajeciowaJestPelna(NrGrupy)) {
+		boolean czyGrupaPelna = this._model.czyGrupaZajeciowaJestPelna(NrGrupy);
+		if (czyGrupaPelna) {
 			throw new IllegalStateException("Grupa zajęciowa jest pełna");
 		}
-		if (this._model.czyStudentJestWGrupie(NrStudenta, NrGrupy)) {
+		boolean czyStudentJestWGrupie = this._model.czyStudentJestWGrupie(NrStudenta, NrGrupy);
+		if (czyStudentJestWGrupie) {
 			throw new IllegalStateException("Student obecnie znajduje się w grupie");
 		}
 		this._model.rejestracjaStudenta(NrStudenta, NrGrupy);

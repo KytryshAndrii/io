@@ -24,11 +24,13 @@ public class Model implements IModel {
 
 		List<String> wynik = new ArrayList<>();
 		for (IGrupaZajeciowa grupa : grupy) {
-			if (grupa.dajKierunek().equals(student.dajKierunek())) {
+			String kierunekStudenta = student.dajKierunek();
+			if (grupa.dajKierunek() == kierunekStudenta) {
 				wynik.add(grupa.opisz());
 			}
 		}
-		return wynik.toArray(new String[0]);
+		String[] daneGrup = wynik.toArray(new String[0]);
+		return daneGrup;
 	}
 
 	public boolean czyGrupaZajeciowaJestPelna( int NrGrupy){
@@ -36,7 +38,8 @@ public class Model implements IModel {
 				this._kontekstSystemu.dajGrupe(NrGrupy);
 
 		boolean czyGrupaPelna;
-		if(weryfikowanaGrupa.dajIloscMiejsc() == 0){
+		int iloscMiejsc = weryfikowanaGrupa.dajIloscMiejsc();
+		if( iloscMiejsc == 0){
 			czyGrupaPelna = true;
 		}else {
 			czyGrupaPelna = false;
@@ -91,19 +94,23 @@ public class Model implements IModel {
 	}
 
 	public boolean wyrejestrowanieStudenta(int NrStudenta, int NrGrupy) {
+		boolean czyWyrejestrowalo;
 		try {
 			this._kontekstSystemu.usunStudentaZGrupy(NrStudenta, NrGrupy);
-			return true;
+			czyWyrejestrowalo = true;
 		} catch (Exception e) {
-			return false;
+			czyWyrejestrowalo = false;
 		}
+		return czyWyrejestrowalo;
 	}
 
 	public void zmienLimitMiejscWGrupie(int NrGrupy, int NowyLimit) {
 		IGrupaZajeciowa[] grupy = this._dao.znajdzGrupy();
 		for (IGrupaZajeciowa grupa : grupy) {
-			if (grupa.dajNrGrupy() == NrGrupy) {
-				int iloscZapisanychStudentow = grupa.dajStudentow().length;
+			int nrGrupy = grupa.dajNrGrupy();
+			if (nrGrupy == NrGrupy) {
+				int[] studentyGrupy = grupa.dajStudentow();
+				int iloscZapisanychStudentow = studentyGrupy.length;
 
 				if (NowyLimit < iloscZapisanychStudentow) {
 					throw new IllegalArgumentException(
@@ -124,6 +131,7 @@ public class Model implements IModel {
 		for (IGrupaZajeciowa grupa : grupy) {
 			wynik.add(grupa.opisz());
 		}
-		return wynik.toArray(new String[0]);
+		String[] daneGrup = wynik.toArray(new String[0]);
+		return daneGrup;
 	}
 }

@@ -14,16 +14,17 @@ public class WyrejestrowanieZGrupy extends StrategiaEdycjiRejestracjiStudenta {
 	 */
 	private boolean wypisanieZGrupy(int NrGrupy, int NrStudenta) {
 		boolean sukces = this._model.wyrejestrowanieStudenta(NrStudenta, NrGrupy);
-
+		boolean czyWypisany;
 		if (sukces) {
 			PrzekazanieInformacjiUzytkownikowi
 					.przekazanieInformacji("Student o numerze " + NrStudenta + " został wypisany z grupy " + NrGrupy + "pomyślnie .");
-			return true;
+			czyWypisany = true;
 		} else {
 			PrzekazanieInformacjiUzytkownikowi
 					.przekazanieInformacji("Nie udało się wypisać studenta z grupy.");
-			return false;
+			czyWypisany = false;
 		}
+		return czyWypisany;
 	}
 
 	@Override

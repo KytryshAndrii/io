@@ -2,6 +2,9 @@ package Kontroler;
 
 import Model.IModel;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class PrzegladanieGrup implements IPrzegladanieGrup {
 	private IModel _model;
 
@@ -35,20 +38,21 @@ public class PrzegladanieGrup implements IPrzegladanieGrup {
 
 	public void wyswietlenieDanychOWszystkichGrupach(){
 		String[] grupy = this._model.dajDaneWszystkichGrup();
-		for (int i = 0; i < grupy.length; i++) {
-			System.out.println(wyswietlenieDanychOGrupie(grupy[i]));
-		}
+        for (String grupa : grupy) {
+            System.out.println(wyswietlenieDanychOGrupie(grupa));
+        }
 	}
 
 	public String[] wyswietlenieDanychOGrupach(int NrStudenta){
 		String[] dostepneGrupy = this._model.znalezienieDostepnychGrupZajeciowych(NrStudenta);
-		String[] znormalizowaneDaneOGrupach =
-				new String[dostepneGrupy.length];
+		List<String> znormalizowaneDaneOGrupach =
+				new ArrayList<>();
 		for (int i = 0; i < dostepneGrupy.length; i++) {
-			znormalizowaneDaneOGrupach[i] =
-					wyswietlenieDanychOGrupie(dostepneGrupy[i]);
+			znormalizowaneDaneOGrupach.add(
+					wyswietlenieDanychOGrupie(dostepneGrupy[i]));
 			System.out.println(wyswietlenieDanychOGrupie(dostepneGrupy[i]));
 		}
-		return znormalizowaneDaneOGrupach;
+		String[] daneGrup = znormalizowaneDaneOGrupach.toArray(new String[0]);
+		return daneGrup;
 	}
 }
