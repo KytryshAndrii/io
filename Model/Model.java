@@ -35,19 +35,26 @@ public class Model implements IModel {
 		IGrupaZajeciowa weryfikowanaGrupa =
 				this._kontekstSystemu.dajGrupe(NrGrupy);
 
-        return weryfikowanaGrupa.dajIloscMiejsc() == 0;
+		boolean czyGrupaPelna;
+		if(weryfikowanaGrupa.dajIloscMiejsc() == 0){
+			czyGrupaPelna = true;
+		}else {
+			czyGrupaPelna = false;
+		}
+		return czyGrupaPelna;
     }
 
 	public boolean czyStudentJestWGrupie(int NrStudenta, int NrGrupy) {
 		IGrupaZajeciowa grupa = this._kontekstSystemu.dajGrupe(NrGrupy);
 		int[] studenci = grupa.dajStudentow();
-
-		for (int i = 0; i < studenci.length; i++) {
-			if (studenci[i] == NrStudenta) {
-				return true;
-			}
-		}
-		return false;
+		boolean czyStudentIstnieje;
+        for (int student : studenci) {
+            if (student == NrStudenta) {
+                czyStudentIstnieje = true;
+            }
+        }
+		czyStudentIstnieje = false;
+		return czyStudentIstnieje;
 	}
 
 	public void zarejestrowanieZdarzenia(String Zdarzenie) {
