@@ -13,25 +13,25 @@ public class RejestracjaDoGrupy extends StrategiaEdycjiRejestracjiStudenta {
 	 * PU01 Rejestracja do grupy.
 	 * Jesli rejestracja się powiedzie żadny wątek nie zostanie wywołany.
 	 */
-	public void przypisanieDoGrupy(int NrGrupy, int NrStudenta) {
-		boolean czyGrupaPelna = this._model.czyGrupaZajeciowaJestPelna(NrGrupy);
+	public void przypisanieDoGrupy() {
+		boolean czyGrupaPelna = this._model.czyGrupaZajeciowaJestPelna(this._nrGrupy);
 		if (czyGrupaPelna) {
 			throw new IllegalStateException("Grupa zajęciowa jest pełna");
 		}
-		boolean czyStudentJestWGrupie = this._model.czyStudentJestWGrupie(NrStudenta, NrGrupy);
+		boolean czyStudentJestWGrupie = this._model.czyStudentJestWGrupie(this._nrStudenta, this._nrGrupy);
 		if (czyStudentJestWGrupie) {
 			throw new IllegalStateException("Student obecnie znajduje się w grupie");
 		}
-		this._model.rejestracjaStudenta(NrStudenta, NrGrupy);
+		this._model.rejestracjaStudenta(this._nrStudenta, this._nrGrupy);
 		this._model.zarejestrowanieZdarzenia(
-				"Student nr " + NrStudenta + " zapisany do grupy nr " + NrGrupy
+				"Student nr " + this._nrStudenta + " zapisany do grupy nr " + this._nrGrupy
 		);
 	}
 
 	@Override
 	public boolean ukonczEdycje() {
 		try {
-			przypisanieDoGrupy(this._nrGrupy, this._nrStudenta);
+			przypisanieDoGrupy();
 			return true;
 		} catch (Exception e) {
 			PrzekazanieInformacjiUzytkownikowi.przekazanieInformacji(e.getMessage());

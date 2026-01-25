@@ -10,15 +10,18 @@ public class KontrolerAdministratora implements IKontrolerAdministratora {
 	}
 
 	public void zarzadzanieGrupeZajeciowa() {
-		throw new UnsupportedOperationException(" zarzadzanieGrupeZajeciowa() w Kontroler.KontrolerStudenta niezaimplementowana");
+		ZarzadzanieGrupaZajeciowa encjaZarzadzaniaGrupaZajeciowa = new ZarzadzanieGrupaZajeciowa(this._model);
+		encjaZarzadzaniaGrupaZajeciowa.wyborOpcji();
 	}
 
 	public void rejestracjaDoGrupy() {
-		throw new UnsupportedOperationException(" rejestracjaDoGrupy() w Kontroler.KontrolerStudenta niezaimplementowana");
+		RejestracjaDoGrupy encjaRejestracji = new RejestracjaDoGrupy(this._model);
+		encjaRejestracji.ukonczEdycje();
 	}
 
 	public void edycjaRejestracjiStudenta() {
-		throw new UnsupportedOperationException("edycjaRejestracjiStudenta() w Kontroler.KontrolerStudenta niezaimplementowana");
+		EdycjaRejestracjiStudenta encjaEdycjiRejestracjiStudenta = new EdycjaRejestracjiStudenta(this._model);
+		encjaEdycjiRejestracjiStudenta.wyborOpcji();
 	}
 
 }

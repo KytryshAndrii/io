@@ -10,10 +10,12 @@ public class KontrolerStudenta implements IKontrolerStudenta {
 	}
 
 	public void rejestracjaDoGrupy() {
-		throw new UnsupportedOperationException("rejestracjaDoGrupy() w Kontroler.KontrolerStudenta niezaimplementowana");
+		RejestracjaDoGrupy encjaRejestracji = new RejestracjaDoGrupy(this._model);
+		encjaRejestracji.ukonczEdycje();
 	}
 
 	public void edycjaRejestracjiStudenta() {
-		throw new UnsupportedOperationException("edycjaRejestracjiStudenta() w Kontroler.KontrolerStudenta niezaimplementowana");
+		EdycjaRejestracjiStudenta encjaEdycjiRejestracjiStudenta = new EdycjaRejestracjiStudenta(this._model);
+		encjaEdycjiRejestracjiStudenta.wyborOpcji();
 	}
 }
