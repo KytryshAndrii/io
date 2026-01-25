@@ -14,11 +14,7 @@ public interface IModel {
 
 	public void usuniecieGrupyZajeciowej(int NrGrupy);
 
-	public void udostepnienieGrupyDoRejestracji(int NrGrupy);
-
 	public void tworzenieGrupyZajeciowej(String Grupa);
-
-	public void edycjaGrupyZajeciowej(int NrGrupy);
 
 	public void rejestracjaStudenta(int NrStudenta, int NrGrupy);
 

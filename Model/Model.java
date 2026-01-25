@@ -68,10 +68,6 @@ public class Model implements IModel {
 		this._kontekstSystemu.usunGrupe(NrGrupy);
 	}
 
-	public void udostepnienieGrupyDoRejestracji(int NrGrupy) {
-		throw new UnsupportedOperationException();
-	}
-
 	public void tworzenieGrupyZajeciowej(String Grupa) {
 		String[] pola = Grupa.split(";", 4);
 		int nrGrupy = Integer.parseInt(pola[0]);
@@ -85,9 +81,6 @@ public class Model implements IModel {
 		this._dao.dodajGrupe(Grupa);
 	}
 
-	public void edycjaGrupyZajeciowej(int NrGrupy) {
-		throw new UnsupportedOperationException();
-	}
 
 	public void rejestracjaStudenta(int NrStudenta, int NrGrupy) {
 		this._kontekstSystemu.dodajStudentaDoGrupy(NrStudenta, NrGrupy);
